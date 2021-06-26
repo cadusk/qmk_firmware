@@ -2,12 +2,11 @@
 
 enum layer_names {
     _QWERTY,
-    _DVORAK,
     _COLEMAK,
     _KEYPAD,
 };
 
-enum custom_keycodes { DVORAK = SAFE_RANGE, QWERTY, COLEMAK, KEYPAD };
+enum custom_keycodes { QWERTY = SAFE_RANGE, COLEMAK, KEYPAD };
 
 // Aliases to make the keymap more uniform
 #define GUI_END GUI_T(KC_END)
@@ -25,26 +24,6 @@ enum custom_keycodes { DVORAK = SAFE_RANGE, QWERTY, COLEMAK, KEYPAD };
         ,-----------------------------------------------------------------.
         |  F9  |  F10 |  F11 |  F12 | PScr | SLck | Paus | Keypad | RESET |
         `-----------------------------------------------------------------'
-
-        Dvorak layer:
-	,-------------------------------------------.,-------------------------------------------.
-	|   =    |   1  |   2  |   3  |   4  |   5  ||   6  |   7  |   8  |   9  |   0  |   \    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Tab    |   '  |   ,  |   .  |   P  |   Y  ||   F  |   G  |   C  |   R  |   L  |   /    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| CapsLk |   A  |   O  |   E  |   U  |   I  ||   D  |   H  |   T  |   N  |   S  |   -    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| LShift |   Z  |   X  |   C  |   V  |   X  ||   B  |   M  |   W  |   V  |   Z  | RShift |
-	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
-	         |   `  |  INS | Left | Rght |              |  Up  |  Dn  |   [  |   ]  |
-	         `---------------------------'              `---------------------------'
-	                             ,--------------.,--------------.
-	                             | LCtl  | LAlt || LGUI | RCtl  |
-	                      ,------|-------|------||------+-------+-------.
-	                      |      |       | Home || PgUp | Enter |       |
-	                      | BkSp |  Del  |------||------|   /   | Space |
-	                      |      |       | End  || PgDn | KeyPd |       |
-	                      `---------------------'`----------------------'
 
         QWERTY layer:
 	,-------------------------------------------.,-------------------------------------------.
@@ -96,7 +75,7 @@ enum custom_keycodes { DVORAK = SAFE_RANGE, QWERTY, COLEMAK, KEYPAD };
 	|--------+------+------+------+------+------||------+------+------+------+------+--------|
 	|        | Stop | Prev | Play | Next | Sel  ||      | KP 1 | KP 2 | KP 3 |KP Ent|        |
 	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
-	         |      |QWERTY|Colemk|Dvorak|              |      |      | KP . |KP Ent|
+	         |      |QWERTY|Colemk|      |              |      |      | KP . |KP Ent|
 	         `---------------------------'              `---------------------------'
 	                              ,-------------.,-------------.
 	                              |      |      ||      |MacLck|
@@ -194,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_SLEP, _______, _______, _______, _______, _______,
            KC_WAKE, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______,
            _______, KC_MSTP, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSEL,
-                    _______, QWERTY,  COLEMAK, DVORAK,
+                    _______, QWERTY,  COLEMAK, _______,
            // Left Thumb
                     _______, _______,
                              _______,
@@ -215,13 +194,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // clang-format on
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
-            case DVORAK:
-                set_single_persistent_default_layer(_DVORAK);
-                return false;
             case QWERTY:
                 set_single_persistent_default_layer(_QWERTY);
                 return false;
