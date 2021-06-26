@@ -13,6 +13,7 @@
 > Feel free to check out [Xyverz's original layout here.](../xyverz/readme.md)
 >
 > *Update* 2021-06-26: Removed DVORAK layout
+> *Update* 2021-06-26: Changes to thumb clusters and keypad layout
 
 
 This is is pretty much a stock Advantage layout for Dvorak, with a bit of
@@ -58,11 +59,11 @@ ortholinear keyboards 2020-05-04
 	         |   `  |  Ins | Left | Rght |              |  Up  |  Dn  |   [  |   ]  |
 	         `---------------------------'              `---------------------------'
 	                             ,--------------.,--------------.
-	                             | LCtl  | LAlt || RGUI | RCtl  |
+	                             | Home  | End  || WWW< | WWW>  |
 	                      ,------|-------|------||------+-------+-------.
-	                      |      |       | Home || PgUp | Enter |       |
-	                      | BkSp |  Del  |------||------|   /   | Space |
-	                      |      |       | End  || PgDn | KeyPd |       |
+	                      |      |       | LCtl || RCtl | Enter |       |
+	                      | BkSp | LGUI  |------||------|   /   | Space |
+	                      |      |       | LAlt || RAlt | KeyPd |       |
 	                      `---------------------'`----------------------'
 
 ### Layer 1: Colemak layer
@@ -79,11 +80,11 @@ ortholinear keyboards 2020-05-04
 	         |   `  |  Ins | Left | Rght |              |  Up  |  Dn  |   [  |   ]  |
 	         `---------------------------'              `---------------------------'
 	                             ,--------------.,--------------.
-	                             | LCtl  | LAlt || RGUI | RCtl  |
+	                             | Home  | End  || WWW< | WWW>  |
 	                      ,------|-------|------||------+-------+-------.
-	                      |      |       | Home || PgUp | Enter |       |
-	                      | BkSp |  Del  |------||------|   /   | Space |
-	                      |      |       | End  || PgDn | KeyPd |       |
+	                      |      |       | LCtl || RCtl | Enter |       |
+	                      | BkSp | LGUI  |------||------|   /   | Space |
+	                      |      |       | LAlt || RAlt | KeyPd |       |
 	                      `---------------------'`----------------------'
 
 ### Layer 2: Keypad layer
@@ -93,9 +94,9 @@ ortholinear keyboards 2020-05-04
 	|--------+------+------+------+------+------||------+------+------+------+------+--------|
 	| Sleep  |      |      |      |      |      ||      | KP 7 | KP 8 | KP 9 | KP - |        |
 	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Wake   |      | Mute | Vol- | Vol+ |      ||      | KP 4 | KP 5 | KP 6 | KP + |        |
+	| Wake   |      | Mute | Vol- | Vol+ |      || PgUp | KP 4 | KP 5 | KP 6 | KP + |        |
 	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	|        | Stop | Prev | Play | Next | Sel  ||      | KP 1 | KP 2 | KP 3 |KP Ent|        |
+	|        | Stop | Prev | Play | Next | Sel  || PgDn | KP 1 | KP 2 | KP 3 |KP Ent|        |
 	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
 	         |      |QWERTY|Colemk|      |              |      |      | KP . |KP Ent|
 	         `---------------------------'              `---------------------------'
@@ -103,6 +104,6 @@ ortholinear keyboards 2020-05-04
 	                              |      |      ||      |MacLck|
 	                       ,------|------|------||------+------+------.
 	                       |      |      |      ||      |      |      |
-	                       |      |      |------||------|      | KP 0 |
-	                       |      |      |MacLck||      |      |      |
+	                       | Del  |MacLng|------||------|      | KP 0 |
+	                       |      |      |      ||      |      |      |
 	                       `--------------------'`--------------------'
