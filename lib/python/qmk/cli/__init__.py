@@ -16,6 +16,7 @@ import_names = {
     # A mapping of package name to importable name
     'pep8-naming': 'pep8ext_naming',
     'pyusb': 'usb.core',
+    'qmk-dotty-dict': 'dotty_dict'
 }
 
 safe_commands = [
@@ -39,7 +40,10 @@ subcommands = [
     'qmk.cli.doctor',
     'qmk.cli.fileformat',
     'qmk.cli.flash',
+    'qmk.cli.format.c',
     'qmk.cli.format.json',
+    'qmk.cli.format.python',
+    'qmk.cli.format.text',
     'qmk.cli.generate.api',
     'qmk.cli.generate.config_h',
     'qmk.cli.generate.dfu_header',

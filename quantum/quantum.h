@@ -39,10 +39,6 @@
 
 #if defined(RGBLIGHT_ENABLE)
 #    include "rgblight.h"
-#elif defined(RGB_MATRIX_ENABLE)
-// Dummy define RGBLIGHT_MODE_xxxx
-#    define RGBLIGHT_H_DUMMY_DEFINE
-#    include "rgblight.h"
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
@@ -116,6 +112,10 @@ extern layer_state_t layer_state;
 
 #ifdef UNICODEMAP_ENABLE
 #    include "process_unicodemap.h"
+#endif
+
+#ifdef KEY_OVERRIDE_ENABLE
+#    include "process_key_override.h"
 #endif
 
 #ifdef TAP_DANCE_ENABLE

@@ -262,9 +262,6 @@ endif
     COMMON_VPATH += $(QUANTUM_DIR)/rgb_matrix
     COMMON_VPATH += $(QUANTUM_DIR)/rgb_matrix/animations
     COMMON_VPATH += $(QUANTUM_DIR)/rgb_matrix/animations/runners
-    # Get rid of this!
-    COMMON_VPATH += $(QUANTUM_DIR)/rgblight
-
     SRC += $(QUANTUM_DIR)/color.c
     SRC += $(QUANTUM_DIR)/rgb_matrix/rgb_matrix.c
     SRC += $(QUANTUM_DIR)/rgb_matrix/rgb_matrix_drivers.c
@@ -333,6 +330,11 @@ ifeq ($(strip $(PRINTING_ENABLE)), yes)
     OPT_DEFS += -DPRINTING_ENABLE
     SRC += $(QUANTUM_DIR)/process_keycode/process_printer.c
     SRC += $(TMK_DIR)/protocol/serial_uart.c
+endif
+
+ifeq ($(strip $(KEY_OVERRIDE_ENABLE)), yes)
+    OPT_DEFS += -DKEY_OVERRIDE_ENABLE
+    SRC += $(QUANTUM_DIR)/process_keycode/process_key_override.c
 endif
 
 ifeq ($(strip $(SERIAL_LINK_ENABLE)), yes)
@@ -511,11 +513,7 @@ ifneq ($(strip $(CUSTOM_MATRIX)), yes)
     # if 'lite' then skip the actual matrix implementation
     ifneq ($(strip $(CUSTOM_MATRIX)), lite)
         # Include the standard or split matrix code if needed
-        ifeq ($(strip $(SPLIT_KEYBOARD)), yes)
-            QUANTUM_SRC += $(QUANTUM_DIR)/split_common/matrix.c
-        else
-            QUANTUM_SRC += $(QUANTUM_DIR)/matrix.c
-        endif
+        QUANTUM_SRC += $(QUANTUM_DIR)/matrix.c
     endif
 endif
 
