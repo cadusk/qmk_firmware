@@ -106,11 +106,11 @@ QWERTY
           |    `   |   Ins  |    [   |    ]   |                                                                       |  Left  |  Down  |   Up   |  Right |
           `-----------------------------------'                                                                       `-----------------------------------'
 	                                                   ,-----------------.                 ,-----------------.
-	                                                   | ESC/Ctl|  Hyper |                 |  RAlt  |  RCtl  |
+                                                           | ESC/Ctl| App/Alt|                 |  RAlt  |  RCtl  |
 	                                          ,--------+--------+--------|                 |--------+--------+--------.
-	                                          |  Space |  Enter | App/Alt|                 |  RGUI  | Delete |  Bspc  |
+                                                  |  Bspc  |  Del   |  LGUI  |                 |  RGUI  |  Enter |  Space |
 	                                          |    /   |    /   |--------|                 |--------|    /   |    /   |
-	                                          |   Fn   | Number |  Bspc  |                 |  Enter | Number2|   Fn2  |
+                                                  |   Fn   | Number |  Enter |                 |  Bscp  | Number2|   Fn2  |
 	                                          `--------------------------'                 `--------------------------'
 */
 [_QWERTY] = LAYOUT_pretty(
@@ -120,9 +120,9 @@ QWERTY
   CTLESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
            KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-                                                        CTLESC,  HYPER,                     KC_RALT, KC_RCTL,
-                                                                 ALTAPP,                    KC_RGUI,
-                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  DELNS,   BSPCFN
+                                                        CTLESC,  ALTAPP,                    KC_RALT, KC_RCTL,
+                                                                KC_LGUI,                    KC_RGUI,
+                                               BSPCFN,   DELNS,  KC_ENT,                    KC_BSPC,   ENTNS, SPCFN
 ),
 
 /*
@@ -143,11 +143,11 @@ Colemak
           |    `   |   Ins  |    [   |    ]   |                                                                       |  Left  |  Down  |   Up   |  Right |
           `-----------------------------------'                                                                       `-----------------------------------'
 	                                                   ,-----------------.                 ,-----------------.
-	                                                   | ESC/Ctl|  Hyper |                 |  RAlt  |  RCtl  |
+                                                           | ESC/Ctl| App/Alt|                 |  RAlt  |  RCtl  |
 	                                          ,--------+--------+--------|                 |--------+--------+--------.
-	                                          |  Space |  Enter | App/Alt|                 |  RGUI  | Delete |  Bspc  |
+                                                  |  Bspc  |  Del   |  LGUI  |                 |  RGUI  |  Enter |  Space |
 	                                          |    /   |    /   |--------|                 |--------|    /   |    /   |
-	                                          |   Fn   | Number |  Bspc  |                 |  Enter | Number2|   Fn2  |
+                                                  |   Fn   | Number |  Enter |                 |  Bscp  | Number2|   Fn2  |
 	                                          `--------------------------'                 `--------------------------'
 */
 [_COLEMAK] = LAYOUT_pretty(
@@ -157,9 +157,9 @@ Colemak
   CTLESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                                                          KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
            KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-                                                        CTLESC,  HYPER,                     KC_RALT, KC_RCTL,
-                                                                 ALTAPP,                    KC_RGUI,
-                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  DELNS,   BSPCFN
+                                                        CTLESC,  ALTAPP,                    KC_RALT, KC_RCTL,
+                                                                KC_LGUI,                    KC_RGUI,
+                                               BSPCFN,   DELNS,  KC_ENT,                    KC_BSPC,   ENTNS, SPCFN
 ),
 
 /*
