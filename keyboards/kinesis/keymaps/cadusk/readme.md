@@ -1,109 +1,219 @@
-# Xyverz's Kinesis Keymap
+# TuesdayJohn's Kinesis Keymap
 
-## About this keymap:
+These layouts are derived from what I was using on my Kinesis Contoured keyboards with Hasu's USB-USB TMK converters.  With the move to QMK via Stapelberg replacement controller, I've cleaned up the layouts a bit while adding more functions and layers.
 
-> I really like Xyverz's keymap configuration but for me QWERTY should be the
-> default layer instead of Dvorak. Although I do not plan to ever switch to Dvorak
-> or Colemak, it's nice to have the other layouts available as placeholder for
-> future ideas.
->
-> Also, my gnome configuration doesn't like RGUI for opening dashboard.
-> It's been switched to LGUI for now.
->
-> Feel free to check out [Xyverz's original layout here.](../xyverz/readme.md)
->
-> *Update* 2021-06-26: Removed DVORAK layout
-> *Update* 2021-06-26: Changes to thumb clusters and keypad layout
+There are minor changes in the base keywell layout of non-alpha keys (e.g., CapsLock is ESC/Ctl, arrow clusters on one side), while the thumb clusters deviate more from the default layout.
+
+Changes to the thumb clusters include: 
+* The navigations keys moved to function layers.
+* The function of 2u keys have been reversed - I've always used space with my left thumb, and I find it more helpful to have quick and easy access to Space and Enter while using my mouse/trackball.
+* Backspace have been duplicated on both clusters.  As with Space and Backspace, I find it helpful to have quick and easy access to Backspace while using my mouse/trackball.
+* The 2u keys serve dual function as momentary layer switchers.
+
+I've largely left the function keys untouched, with the intension of not using them often.  They are neither easy to use nor reach due to their locations and size, and Kinesis used not-so-great rubber dome switches for them (Advantage model and earlier).  Kinesis have since replaced the keys with Cherry ML switches on Advantage2, but did not resolve the issues of size or location.  Additionally, leaving the function keys unused here makes it easier for me to adapt the keymaps to my other keyboards, most of which do not have physical function keys.
+
+I use Colemak as my default layout.  I've included QWERTY here as well.
+
+Additionally, there is a gaming layer on toggle.  This layer is turned top of either Colemak or QWERTY and have limited access to the Function or Numbers/Symbols layers.  Additionally, NKRO is turned on when the layer is turned on.
+
+Persistent default layer has been enabled for Colemak and QWERTY.  The gaming/vanilla Colemak and QWERTY can be set as default layer, but will not be persistent.
+
+## Future plans
+
+* Add status LEDs to the Stapelberg PCB (usually used for Caps Lock, Num Lock, and Scroll Lock) to use as layer indicators.
+* Add a speaker now that QMK supports additional pins for audio use.
+* Utilize the leftover spots on the key matrix, as well as unused pins on Teensy++ 2.0 to run macropad and/or foot pedals.
 
 
-This is is pretty much a stock Advantage layout for Dvorak, with a bit of
-rearranging of certain keys. The QWERTY layout shown here is based entirely on
-the Kinesis Advantage layout. The Colemak layout is merely an adaptation of
-that.
+## Layers
 
-I've enabled persistent keymaps for Qwerty, Dvorak and Colemak layers, similar
-to the default Planck layouts.
+### Function Keys on all layers
+- 'Numpd' toggles the Numpad layer
+- 'Adjst' is a momentary layer key to access the Adjust layer
 
-Depending on the OS, most of the LEDs are now working in this keymap, but I
-still have yet to get the Num Pad LED working when switching to the Numpad
-layer.
+```
+,-----------------------------------------------------. ,----------------------------------------------------.
+| ESC |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 | | F9 | F10 | F11 | F12 | PScr| SLck| Paus|Numpd|Adjst|
+`-----------------------------------------------------' `----------------------------------------------------'
+```
 
-Removed the Media layer 2018-12-07
+### Colemak
+- Default layer
+- Keys separated by "/" tap for first, hold for second
+- Uses [Space Cadet Shifts](https://beta.docs.qmk.fm/features/feature_space_cadet)
 
-Updated Dvorak layer to move slash to a position relative to my other 5x12
-ortholinear keyboards 2020-05-04
+```
+,------------------------------------------------. ,------------------------------------------------.
+|    =   |   1   |   2   |   3   |   4   |   5   | |   6   |   7   |   8   |   9   |   0   |    -   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|   Tab  |   Q   |   W   |   F   |   P   |   G   | |   J   |   L   |   U   |   Y   |   ;   |    \   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|ESC/Ctrl|   A   |   R   |   S   |   T   |   D   | |   H   |   N   |   E   |   I   |   O   |    '   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|SC Shift|   Z   |   X   |   C   |   V   |   B   | |   K   |   M   |   ,   |   .   |   /   |SC Shift|
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |  Ins  |   `   |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |ESC/Ctl| Hyper | |  RAlt |  RCtl |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         | Space | Enter |App/Alt| |  RGUI | Delete|  Bspc |
+                         |   /   |   /   |-------| |-------|   /   |   /   |
+                         |  Fn   | Number|  Bspc | | Enter |Number2|  Fn2  |
+                         `-----------------------' `-----------------------' 
+```	
+	
+### QWERTY
+- Keys separated by "/" tap for first, hold for second
+- Uses [Space Cadet Shifts](https://beta.docs.qmk.fm/features/feature_space_cadet)
 
-## Still to do:
+```
+,------------------------------------------------. ,------------------------------------------------.
+|    =   |   1   |   2   |   3   |   4   |   5   | |   6   |   7   |   8   |   9   |   0   |    -   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|   Tab  |   Q   |   W   |   E   |   R   |   T   | |   Y   |   U   |   I   |   O   |   P   |    \   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|ESC/Ctrl|   A   |   S   |   D   |   F   |   G   | |   H   |   J   |   K   |   L   |   ;   |    '   |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|SC Shift|   Z   |   X   |   C   |   V   |   B   | |   N   |   M   |   ,   |   .   |   /   |SC Shift|
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |  Ins  |   `   |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |ESC/Ctl| Hyper | |  RAlt |  RCtl |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         | Space | Enter |App/Alt| |  RGUI | Delete|  Bspc |
+                         |   /   |   /   |-------| |-------|   /   |   /   |
+                         |  Fn   | Number|  Bspc | | Enter |Number2|  Fn2  |
+                         `-----------------------' `-----------------------' 
+```	
 
- * Figure out how to make the Numpad LED work properly.
+### Numbers & Symbols layer
+- Momentary layer
+- Multiple characters: Single-tap for first, double-tap for second
 
-### Function Keys on All Layers (`keypad` toggles to the keypad layer):
-	,-----------------------------------------------------------------.
-	|  Esc |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   F7   |  F8   |
- 	`-----------------------------------------------------------------'
-	,-----------------------------------------------------------------.
-	|  F9  |  F10 |  F11 |  F12 | PScr | SLck | Paus | Keypad | Reset |
-	`-----------------------------------------------------------------'
+```
+,------------------------------------------------. ,------------------------------------------------.
+|   F12  |   F1  |   F2  |   F3  |   F4  |   F5  | |   F6  |   F7  |   F8  |   F9  |  F10  |   F11  |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |   6   |   7   |   8   |   9   |   0   | |   ^   |   &   |   *   |   (   |   )   |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |   1   |   2   |   3   |   4   |   5   | |   !   |   @   |   #   |   $   |   %   |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |   .   |  / *  |  - _  |  + =  | |  ` ~  |  [ {  |  ] }  |       |       |        |
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |   (   |   )   |  [ {  |  ] }  |                 |       |       |       |       |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |       |       | |       |       |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         |       |       |       | |       |       |       |
+                         |       |       |-------| |-------|       |       |
+                         |       |       |       | |       |       |       |
+                         `-----------------------' `-----------------------' 
+```	
 
-### Layer 0: QWERTY layer
+### Function layer
+- Momentary layer
+ 	
+```
+,------------------------------------------------. ,------------------------------------------------.
+|   F12  |   F1  |   F2  |   F3  |   F4  |   F5  | |   F6  |   F7  |   F8  |   F9  |  F10  |   F11  |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |       |   Up  |       |       | |       |       |   Up  | Ctrl+Y|       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        | Ctrl+A|  Left |  Down | Right | C+A+Tb| |  PgUp |  Left |  Down | Right |  Home |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        | Ctrl+Z| Ctrl+X| Ctrl+C| Ctrl+V|  Bspc | |  PgDn |  Mute |  Vol- |  Vol+ |   End |        |
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |       |       |       |       |                 |  Prev |  Play |  Next |  Stop |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |       |       | |       |       |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         |       |       |       | |       |       |       |
+                         |       |       |-------| |-------|       |       |
+                         |       |       |       | |       |       |       |
+                         `-----------------------' `-----------------------' 
+```	
 
-	,-------------------------------------------.,-------------------------------------------.
-	|   =    |   1  |   2  |   3  |   4  |   5  ||   6  |   7  |   8  |   9  |   0  |   -    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Tab    |   Q  |   W  |   E  |   R  |   T  ||   Y  |   U  |   I  |   O  |   P  |   \    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| CapsLk |   A  |   S  |   D  |   F  |   G  ||   H  |   J  |   K  |   L  |   ;  |   '    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| LShift |   Z  |   X  |   C  |   V  |   B  ||   N  |   M  |   ,  |   .  |   /  | RShift |
-	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
-	         |   `  |  Ins | Left | Rght |              |  Up  |  Dn  |   [  |   ]  |
-	         `---------------------------'              `---------------------------'
-	                             ,--------------.,--------------.
-	                             | Home  | End  || WWW< | WWW>  |
-	                      ,------|-------|------||------+-------+-------.
-	                      |      |       | LCtl || RCtl | Enter |       |
-	                      | BkSp | LGUI  |------||------|   /   | Space |
-	                      |      |       | LAlt || RAlt | KeyPd |       |
-	                      `---------------------'`----------------------'
+### Numpad layer
+- Toggle layer
+- Left side duplicates layout from the Numbers layer, just with numpad output
+- Right side layout close to PC numpad layout
+- Multiple characters: Single-tap for first, double-tap for second
 
-### Layer 1: Colemak layer
+```	
+,------------------------------------------------. ,------------------------------------------------.
+|        | NumLk |       |       |       |       | |  Tab  | NumLk |  KP / |  KP * |  KP - |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |  KP 6 |  KP 7 |  KP 8 |  KP 9 |  KP 0 | |       |  KP 7 |  KP 8 |  KP 9 |  KP + |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |  KP 1 |  KP 2 |  KP 3 |  KP 4 |  KP 5 | |       |  KP 4 |  KP 5 |  KP 6 |   =   |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |  KP . | KP/KP*| KP- _ | KP+ = | |       |  KP 1 |  KP 2 |  KP 3 | KP Ent|        |
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |   (   |   )   |  [ {  |  ] }  |                 |  KP 0 |   ,   |  KP . | KP Ent|
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |       |       | |       |       |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         |       |       |       | |       |       |       |
+                         |       |       |-------| |-------|       |       |
+                         |       |       |       | |       |       |       |
+                         `-----------------------' `-----------------------' 
+```	
 
-	,-------------------------------------------.,-------------------------------------------.
-	|   =    |   1  |   2  |   3  |   4  |   5  ||   6  |   7  |   8  |   9  |   0  |   -    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Tab    |   Q  |   W  |   F  |   P  |   G  ||   J  |   L  |   U  |   Y  |   ;  |   \    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| BkSpc  |   A  |   R  |   S  |   T  |   D  ||   H  |   N  |   E  |   I  |   O  |   '    |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| LShift |   Z  |   X  |   C  |   V  |   B  ||   K  |   M  |   ,  |   .  |   /  | RShift |
-	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
-	         |   `  |  Ins | Left | Rght |              |  Up  |  Dn  |   [  |   ]  |
-	         `---------------------------'              `---------------------------'
-	                             ,--------------.,--------------.
-	                             | Home  | End  || WWW< | WWW>  |
-	                      ,------|-------|------||------+-------+-------.
-	                      |      |       | LCtl || RCtl | Enter |       |
-	                      | BkSp | LGUI  |------||------|   /   | Space |
-	                      |      |       | LAlt || RAlt | KeyPd |       |
-	                      `---------------------'`----------------------'
+### Gaming
+- Toggle layer with limited access to Function or Numbers layers
+- Mainly used for gaming
+- NKRO turned on by default
+- Press and hold Ent/NS + Delete/Numbers2 to access Adjust layer
 
-### Layer 2: Keypad layer
+```
+,------------------------------------------------. ,------------------------------------------------.
+|        |       |       |       |       |       | |       |       |       |       |       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |       |       |       |       | |       |       |       |       |       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|  LCtrl |       |       |       |       |       | |       |       |       |       |       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|  Shift |       |       |       |       |       | |       |       |       |       |       |  Shift |
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |       |       |       |       |                 |       |       |       |       |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |  ESC  |xxxxxxx| |  RAlt |  RCtl |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         |       |       |  LAlt | |  RGUI | Delete|  Bspc |
+                         | Space | Enter |-------| |-------|   /   |   /   |
+                         |       |       |  Bspc | | Ent/NS|Number2|  Fn2  |
+                         `-----------------------' `-----------------------' 
+```	
+	
+### Adjust layer
+- Momentary layer
+- Press and hold Adjust key on the function row or Enter/Number + Delete/Number2 to access
+- Gaming, Numpad, and NKRO are on toggle
 
-	,-------------------------------------------.,-------------------------------------------.
-	| Power  |      |      |      |      |      ||      | NmLk | KP = | KP / | KP * |        |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Sleep  |      |      |      |      |      ||      | KP 7 | KP 8 | KP 9 | KP - |        |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	| Wake   |      | Mute | Vol- | Vol+ |      || PgUp | KP 4 | KP 5 | KP 6 | KP + |        |
-	|--------+------+------+------+------+------||------+------+------+------+------+--------|
-	|        | Stop | Prev | Play | Next | Sel  || PgDn | KP 1 | KP 2 | KP 3 |KP Ent|        |
-	`--------+------+------+------+------+------'`------+------+------+------+------+--------'
-	         |      |QWERTY|Colemk|      |              |      |      | KP . |KP Ent|
-	         `---------------------------'              `---------------------------'
-	                              ,-------------.,-------------.
-	                              |      |      ||      |MacLck|
-	                       ,------|------|------||------+------+------.
-	                       |      |      |      ||      |      |      |
-	                       | Del  |MacLng|------||------|      | KP 0 |
-	                       |      |      |      ||      |      |      |
-	                       `--------------------'`--------------------'
+```
+,------------------------------------------------. ,------------------------------------------------.
+|        |Colemak| QWERTY|       | Gaming|       | | Numpad|       |       |       |       |  RESET |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |       |       |       |       | |       |       |       |       |       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |       |       |       |       | |       |  NKRO |       |       |       |        |
+|--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
+|        |       |       |       |       |       | |       |       |       |       |       |        |
+`--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
+         |       |       |       |       |                 |       |       |       |       |
+         `-------------------------------'                 `-------------------------------'
+                                 ,---------------. ,---------------.
+                                 |       |       | |       |       |
+                         ,-------+-------+-------| |-------+-------+-------.
+                         |       |       |       | |       |       |       |
+                         |       |       |-------| |-------|       |       |
+                         |       |       |       | |       |       |       |
+                         `-----------------------' `-----------------------' 
+ ```
+ 
