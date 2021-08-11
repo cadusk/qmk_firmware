@@ -54,7 +54,6 @@ I use QWERTY as my default layout. I've included Colemak here as well.
 ### Colemak
 - Default layer
 - Keys separated by "/" tap for first, hold for second
-- Uses [Space Cadet Shifts](https://beta.docs.qmk.fm/features/feature_space_cadet)
 
 ```
 ,------------------------------------------------. ,------------------------------------------------.
@@ -64,7 +63,7 @@ I use QWERTY as my default layout. I've included Colemak here as well.
 |--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
 |ESC/Ctrl|   A   |   R   |   S   |   T   |   D   | |   H   |   N   |   E   |   I   |   O   |    '   |
 |--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
-|SC Shift|   Z   |   X   |   C   |   V   |   B   | |   K   |   M   |   ,   |   .   |   /   |SC Shift|
+|  Shift |   Z   |   X   |   C   |   V   |   B   | |   K   |   M   |   ,   |   .   |   /   |  Shift |
 `--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
          |   `   |  Ins  |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
          `-------------------------------'                 `-------------------------------'
@@ -79,7 +78,6 @@ I use QWERTY as my default layout. I've included Colemak here as well.
 
 ### QWERTY
 - Keys separated by "/" tap for first, hold for second
-- Uses [Space Cadet Shifts](https://beta.docs.qmk.fm/features/feature_space_cadet)
 
 ```
 ,------------------------------------------------. ,------------------------------------------------.
@@ -89,7 +87,7 @@ I use QWERTY as my default layout. I've included Colemak here as well.
 |--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
 |ESC/Ctrl|   A   |   S   |   D   |   F   |   G   | |   H   |   J   |   K   |   L   |   ;   |    '   |
 |--------+-------+-------+-------+-------+-------| |-------+-------+-------+-------+-------+--------|
-|SC Shift|   Z   |   X   |   C   |   V   |   B   | |   N   |   M   |   ,   |   .   |   /   |SC Shift|
+|  Shift |   Z   |   X   |   C   |   V   |   B   | |   N   |   M   |   ,   |   .   |   /   |  Shift |
 `--------+-------+-------+-------+-------+-------' `-------+-------+-------+-------+-------+--------'
          |   `   |  Ins  |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
          `-------------------------------'                 `-------------------------------'
