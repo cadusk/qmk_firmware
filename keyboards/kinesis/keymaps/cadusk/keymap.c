@@ -67,9 +67,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define SPCFN   LT(_FUNCTION, KC_SPC)
 #define BSPCFN  LT(_FUNCTION2, KC_BSPC)
 #define ENTNS   LT(_NUMBERS, KC_ENT)
-#define DELNS   LT(_NUMBERS2, KC_DEL)
+#define GUINS   LT(_NUMBERS2, KC_LGUI)
 #define CTLESC  CTL_T(KC_ESC)
-#define ALTAPP  ALT_T(KC_APP)
 #define CTL_A   LCTL(KC_A)
 #define CTL_C   LCTL(KC_C)
 #define CTL_V   LCTL(KC_V)
@@ -77,7 +76,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define CTL_Z   LCTL(KC_Z)
 #define CTL_Y   LCTL(KC_Y)
 #define CA_TAB  LCA(KC_TAB)
-#define HYPER   ALL_T(KC_NO)
 #define TD_LBCB TD(LBCB)
 #define TD_RBCB TD(RBCB)
 #define TD_PLEQ TD(PLEQ)
@@ -106,11 +104,11 @@ QWERTY
           |    `   |   Ins  |    [   |    ]   |                                                                       |  Left  |  Down  |   Up   |  Right |
           `-----------------------------------'                                                                       `-----------------------------------'
                                                      ,-----------------.                 ,-----------------.
-                                                     | ESC/Ctl| App/Alt|                 |  RAlt  |  RCtl  |
+                                                     | ESC/Ctl|  LAlt  |                 |  RAlt  |  RCtl  |
                                             ,--------+--------+--------|                 |--------+--------+--------.
-                                            |  Bspc  |  Del   |  LGUI  |                 |  RGUI  |  Enter |  Space |
+                                            |  Bspc  |  LGUI  |  Del   |                 |  App   |  Enter |  Space |
                                             |    /   |    /   |--------|                 |--------|    /   |    /   |
-                                            |   Fn   | Number |  Enter |                 |  Bscp  | Number2|   Fn2  |
+                                            |   Fn   | Number |  Home  |                 |  End   | Number2|   Fn2  |
                                             `--------------------------'                 `--------------------------'
 */
 [_QWERTY] = LAYOUT_pretty(
@@ -120,9 +118,9 @@ QWERTY
   CTLESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
            KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-                                                        CTLESC,  ALTAPP,                    KC_RALT, KC_RCTL,
-                                                                KC_LGUI,                    KC_RGUI,
-                                               BSPCFN,   DELNS,  KC_ENT,                    KC_BSPC,   ENTNS, SPCFN
+                                                        CTLESC, KC_LALT,                    KC_RALT, KC_RCTL,
+                                                                KC_DEL,                     KC_APP,
+                                               BSPCFN,  GUINS,  KC_HOME,                    KC_END,  ENTNS,   SPCFN
 ),
 
 /*
@@ -143,11 +141,11 @@ Colemak
           |    `   |   Ins  |    [   |    ]   |                                                                       |  Left  |  Down  |   Up   |  Right |
           `-----------------------------------'                                                                       `-----------------------------------'
                                                      ,-----------------.                 ,-----------------.
-                                                     | ESC/Ctl| App/Alt|                 |  RAlt  |  RCtl  |
+                                                     | ESC/Ctl|  LAlt  |                 |  RAlt  |  RCtl  |
                                             ,--------+--------+--------|                 |--------+--------+--------.
-                                            |  Bspc  |  Del   |  LGUI  |                 |  RGUI  |  Enter |  Space |
+                                            |  Bspc  |  LGUI  |  Del   |                 |  App   |  Enter |  Space |
                                             |    /   |    /   |--------|                 |--------|    /   |    /   |
-                                            |   Fn   | Number |  Enter |                 |  Bscp  | Number2|   Fn2  |
+                                            |   Fn   | Number |  Home  |                 |  End   | Number2|   Fn2  |
                                             `--------------------------'                 `--------------------------'
 */
 [_COLEMAK] = LAYOUT_pretty(
@@ -157,9 +155,9 @@ Colemak
   CTLESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                                                          KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
            KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
-                                                        CTLESC,  ALTAPP,                    KC_RALT, KC_RCTL,
-                                                                KC_LGUI,                    KC_RGUI,
-                                               BSPCFN,   DELNS,  KC_ENT,                    KC_BSPC,   ENTNS, SPCFN
+                                                        CTLESC, KC_LALT,                    KC_RALT, KC_RCTL,
+                                                                KC_DEL,                     KC_APP,
+                                               BSPCFN,  GUINS,  KC_HOME,                    KC_END,  ENTNS,   SPCFN
 ),
 
 /*

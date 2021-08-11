@@ -68,11 +68,11 @@ I use QWERTY as my default layout. I've included Colemak here as well.
          |   `   |  Ins  |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
          `-------------------------------'                 `-------------------------------'
                                ,-----------------. ,-----------------.
-                               | ESC/Ctl| App/Alt| |  RAlt  |  RCtl  |
+                               | ESC/Ctl|  Alt   | |  RAlt  |  RCtl  |
                       ,--------+--------+--------| |--------+--------+--------.
-                      |  Bspc  |  Del   |  LGUI  | |  RGUI  |  Enter |  Space |
+                      |  Bspc  |  LGUI  |  Del   | |  App   |  Enter |  Space |
                       |    /   |    /   |--------| |--------|    /   |    /   |
-                      |   Fn   | Number |  Enter | |  Bscp  | Number2|   Fn2  |
+                      |   Fn   | Number |  Home  | |  End   | Number2|   Fn2  |
                       `--------------------------' `--------------------------'
 ```
 
@@ -92,11 +92,11 @@ I use QWERTY as my default layout. I've included Colemak here as well.
          |   `   |  Ins  |   [   |   ]   |                 |  Left |  Down |   Up  | Right |
          `-------------------------------'                 `-------------------------------'
                                ,-----------------. ,-----------------.
-                               | ESC/Ctl| App/Alt| |  RAlt  |  RCtl  |
+                               | ESC/Ctl|  Alt   | |  RAlt  |  RCtl  |
                       ,--------+--------+--------| |--------+--------+--------.
-                      |  Bspc  |  Del   |  LGUI  | |  RGUI  |  Enter |  Space |
+                      |  Bspc  |  LGUI  |  Del   | |  App   |  Enter |  Space |
                       |    /   |    /   |--------| |--------|    /   |    /   |
-                      |   Fn   | Number |  Enter | |  Bscp  | Number2|   Fn2  |
+                      |   Fn   | Number |  Home  | |  End   | Number2|   Fn2  |
                       `--------------------------' `--------------------------'
 ```
 
