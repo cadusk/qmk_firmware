@@ -347,47 +347,7 @@ Adjust layer
 
 };
 
-#define BLUE_LED   0
-#define GREEN_LED  1
-#define ORANGE_LED 2
-#define RED_LED    3
-
-void disable_led(uint8_t num_led) {
-  PORTF |= (1<<led_num);
-}
-
-void enable_led(uint8_t num_led) {
-  PORTF &= ~(1<<led_num);
-}
-
-void handle_layer_leds(uint32_t state) {
-  // disable all leds
-  disable_led(RED_LED);
-  disable_led(ORANGE_LED);
-  disable_led(GREEN_LED);
-  disable_led(BLUE_LED);
-
-  if (state & (1<<_ADJUST)) {
-    enable_led(BLUE_LED);
-  }
-
-  /* TODO: Implement MacOS layer
-  if (state & (1<<_MACOS)) {
-    enable_led(GREEN_LED);
-  }
-  */
-
-  if (state & (1<<_FUNCTION)) {
-    enable_led(ORANGE_LED);
-  }
-
-  if (state & (1<<_NUMPAD)) {
-    enable_led(RED_LED);
-  }
-}
-
 layer_state_t layer_state_set_user(layer_state_t state) {
-  handle_layer_leds(state);
   return update_tri_layer_state(state, _NUMBERS, _NUMBERS2, _ADJUST);
 }
 
