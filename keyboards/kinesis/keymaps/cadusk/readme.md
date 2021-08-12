@@ -70,9 +70,9 @@ I use QWERTY as my default layout. I've included Colemak here as well.
                                ,-----------------. ,-----------------.
                                | ESC/Ctl|  Alt   | |  RAlt  |  RCtl  |
                       ,--------+--------+--------| |--------+--------+--------.
-                      |  Bspc  |  LGUI  |  Del   | |  App   |  Enter |  Space |
-                      |    /   |    /   |--------| |--------|    /   |    /   |
-                      |   Fn   | Number |  Home  | |  End   | Number2|   Fn2  |
+                      |        |        |  Del   | |  App   |  Enter |  Space |
+                      |  Bspc  |  LGUI  |--------| |--------|    /   |    /   |
+                      |        |        |  Home  | |  End   | Number2|   Fn2  |
                       `--------------------------' `--------------------------'
 ```
 
@@ -94,9 +94,9 @@ I use QWERTY as my default layout. I've included Colemak here as well.
                                ,-----------------. ,-----------------.
                                | ESC/Ctl|  Alt   | |  RAlt  |  RCtl  |
                       ,--------+--------+--------| |--------+--------+--------.
-                      |  Bspc  |  LGUI  |  Del   | |  App   |  Enter |  Space |
-                      |    /   |    /   |--------| |--------|    /   |    /   |
-                      |   Fn   | Number |  Home  | |  End   | Number2|   Fn2  |
+                      |        |        |  Del   | |  App   |  Enter |  Space |
+                      |  Bspc  |  LGUI  |--------| |--------|    /   |    /   |
+                      |        |        |  Home  | |  End   | Number |   Fn   |
                       `--------------------------' `--------------------------'
 ```
 
@@ -178,7 +178,7 @@ I use QWERTY as my default layout. I've included Colemak here as well.
 
 ### Adjust layer
 - Momentary layer
-- Press and hold Adjust key on the function row or Enter/Number + Delete/Number2 to access
+- Press and hold Adjust key on the function row
 - Numpad on toggle
 
 ```
