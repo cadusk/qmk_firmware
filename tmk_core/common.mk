@@ -1,17 +1,12 @@
 COMMON_DIR = common
 PLATFORM_COMMON_DIR = $(COMMON_DIR)/$(PLATFORM_KEY)
 
-TMK_COMMON_SRC +=	$(COMMON_DIR)/host.c \
-	$(COMMON_DIR)/keyboard.c \
-	$(COMMON_DIR)/action.c \
-	$(COMMON_DIR)/action_tapping.c \
-	$(COMMON_DIR)/action_macro.c \
-	$(COMMON_DIR)/action_layer.c \
-	$(COMMON_DIR)/action_util.c \
-	$(COMMON_DIR)/eeconfig.c \
+TMK_COMMON_SRC +=	\
+	$(COMMON_DIR)/host.c \
 	$(COMMON_DIR)/report.c \
 	$(COMMON_DIR)/sync_timer.c \
 	$(COMMON_DIR)/usb_util.c \
+	$(PLATFORM_COMMON_DIR)/platform.c \
 	$(PLATFORM_COMMON_DIR)/suspend.c \
 	$(PLATFORM_COMMON_DIR)/timer.c \
 	$(PLATFORM_COMMON_DIR)/bootloader.c \
@@ -30,7 +25,8 @@ ifeq ($(strip $(KEYBOARD_SHARED_EP)), yes)
     MOUSE_SHARED_EP = yes
 endif
 
-ifeq ($(strip $(MOUSEKEY_ENABLE)), yes)
+ifeq ($(strip $(MOUSE_ENABLE)), yes)
+    OPT_DEFS += -DMOUSE_ENABLE
     ifeq ($(strip $(MOUSE_SHARED_EP)), yes)
         TMK_COMMON_DEFS += -DMOUSE_SHARED_EP
         SHARED_EP_ENABLE = yes
@@ -106,6 +102,19 @@ ifeq ($(strip $(NO_USB_STARTUP_CHECK)), yes)
     TMK_COMMON_DEFS += -DNO_USB_STARTUP_CHECK
 endif
 
+ifeq ($(strip $(DIGITIZER_SHARED_EP)), yes)
+    TMK_COMMON_DEFS += -DDIGITIZER_SHARED_EP
+    SHARED_EP_ENABLE = yes
+endif
+
+ifeq ($(strip $(DIGITIZER_ENABLE)), yes)
+    TMK_COMMON_DEFS += -DDIGITIZER_ENABLE
+    ifeq ($(strip $(SHARED_EP_ENABLE)), yes)
+        TMK_COMMON_DEFS += -DDIGITIZER_SHARED_EP
+        SHARED_EP_ENABLE = yes
+    endif
+endif
+
 ifeq ($(strip $(SHARED_EP_ENABLE)), yes)
     TMK_COMMON_DEFS += -DSHARED_EP_ENABLE
 endif
@@ -125,3 +134,4 @@ endif
 # Search Path
 VPATH += $(TMK_PATH)/$(COMMON_DIR)
 VPATH += $(TMK_PATH)/$(PLATFORM_COMMON_DIR)
+VPATH += $(PLATFORM_PATH)/$(PLATFORM_KEY)/$(DRIVER_DIR)
