@@ -61,12 +61,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef STENO_ENABLE
 #    include "process_steno.h"
 #endif
-#ifdef SERIAL_LINK_ENABLE
-#    include "serial_link/system/serial_link.h"
-#endif
-#ifdef VISUALIZER_ENABLE
-#    include "visualizer/visualizer.h"
-#endif
 #ifdef POINTING_DEVICE_ENABLE
 #    include "pointing_device.h"
 #endif
@@ -381,7 +375,6 @@ void switch_events(uint8_t row, uint8_t col, bool pressed) {
  *
  * * scan matrix
  * * handle mouse movements
- * * run visualizer code
  * * handle midi commands
  * * light LEDs
  *
@@ -513,14 +506,6 @@ MATRIX_LOOP_END:
 
 #ifdef ADB_MOUSE_ENABLE
     adb_mouse_task();
-#endif
-
-#ifdef SERIAL_LINK_ENABLE
-    serial_link_update();
-#endif
-
-#ifdef VISUALIZER_ENABLE
-    visualizer_update(default_layer_state, layer_state, visualizer_get_mods(), host_keyboard_leds());
 #endif
 
 #ifdef POINTING_DEVICE_ENABLE
