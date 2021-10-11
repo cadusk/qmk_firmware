@@ -43,9 +43,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef SERIAL_MOUSE_ENABLE
 #    include "serial_mouse.h"
 #endif
-#ifdef ADB_MOUSE_ENABLE
-#    include "adb.h"
-#endif
 #ifdef RGBLIGHT_ENABLE
 #    include "rgblight.h"
 #endif
@@ -75,9 +72,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 #ifdef HD44780_ENABLE
 #    include "hd44780.h"
-#endif
-#ifdef QWIIC_ENABLE
-#    include "qwiic.h"
 #endif
 #ifdef OLED_ENABLE
 #    include "oled_driver.h"
@@ -307,9 +301,6 @@ void keyboard_init(void) {
 #if defined(CRC_ENABLE)
     crc_init();
 #endif
-#ifdef QWIIC_ENABLE
-    qwiic_init();
-#endif
 #ifdef OLED_ENABLE
     oled_init(OLED_ROTATION_0);
 #endif
@@ -321,9 +312,6 @@ void keyboard_init(void) {
 #endif
 #ifdef SERIAL_MOUSE_ENABLE
     serial_mouse_init();
-#endif
-#ifdef ADB_MOUSE_ENABLE
-    adb_mouse_init();
 #endif
 #ifdef BACKLIGHT_ENABLE
     backlight_init();
@@ -463,10 +451,6 @@ MATRIX_LOOP_END:
     if (encoders_changed) last_encoder_activity_trigger();
 #endif
 
-#ifdef QWIIC_ENABLE
-    qwiic_task();
-#endif
-
 #ifdef OLED_ENABLE
     oled_task();
 #    if OLED_TIMEOUT > 0
@@ -502,10 +486,6 @@ MATRIX_LOOP_END:
 
 #ifdef SERIAL_MOUSE_ENABLE
     serial_mouse_task();
-#endif
-
-#ifdef ADB_MOUSE_ENABLE
-    adb_mouse_task();
 #endif
 
 #ifdef POINTING_DEVICE_ENABLE
