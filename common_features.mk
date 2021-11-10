@@ -27,7 +27,7 @@ QUANTUM_SRC += \
     $(QUANTUM_DIR)/keyboard.c \
     $(QUANTUM_DIR)/keymap_common.c \
     $(QUANTUM_DIR)/keycode_config.c \
-    $(QUANTUM_DIR)/usb_device_state.c \
+    $(QUANTUM_DIR)/sync_timer.c \
     $(QUANTUM_DIR)/logging/debug.c \
     $(QUANTUM_DIR)/logging/sendchar.c \
 
@@ -232,7 +232,7 @@ endif
 endif
 
 RGB_MATRIX_ENABLE ?= no
-VALID_RGB_MATRIX_TYPES := AW20216 IS31FL3731 IS31FL3733 IS31FL3737 IS31FL3741 WS2812 custom
+VALID_RGB_MATRIX_TYPES := AW20216 IS31FL3731 IS31FL3733 IS31FL3737 IS31FL3741 CKLED2001 WS2812 custom
 
 ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
     ifeq ($(filter $(RGB_MATRIX_DRIVER),$(VALID_RGB_MATRIX_TYPES)),)
@@ -288,6 +288,13 @@ endif
         QUANTUM_LIB_SRC += i2c_master.c
     endif
 
+    ifeq ($(strip $(RGB_MATRIX_DRIVER)), CKLED2001)
+        OPT_DEFS += -DCKLED2001 -DSTM32_I2C -DHAL_USE_I2C=TRUE
+        COMMON_VPATH += $(DRIVER_PATH)/led
+        SRC += ckled2001.c
+        QUANTUM_LIB_SRC += i2c_master.c
+    endif
+
     ifeq ($(strip $(RGB_MATRIX_DRIVER)), WS2812)
         OPT_DEFS += -DWS2812
         WS2812_DRIVER_REQUIRED := yes
@@ -324,6 +331,13 @@ ifneq ($(strip $(VARIABLE_TRACE)),no)
     ifneq ($(strip $(MAX_VARIABLE_TRACE_SIZE)),)
         OPT_DEFS += -DMAX_VARIABLE_TRACE_SIZE=$(strip $(MAX_VARIABLE_TRACE_SIZE))
     endif
+endif
+
+ifeq ($(strip $(SLEEP_LED_ENABLE)), yes)
+    SRC += $(PLATFORM_COMMON_DIR)/sleep_led.c
+    OPT_DEFS += -DSLEEP_LED_ENABLE
+
+    NO_SUSPEND_POWER_DOWN := yes
 endif
 
 VALID_BACKLIGHT_TYPES := pwm timer software custom
@@ -407,12 +421,12 @@ endif
 ifeq ($(strip $(VIA_ENABLE)), yes)
     DYNAMIC_KEYMAP_ENABLE := yes
     RAW_ENABLE := yes
-    BOOTMAGIC_ENABLE := lite
+    BOOTMAGIC_ENABLE := yes
     SRC += $(QUANTUM_DIR)/via.c
     OPT_DEFS += -DVIA_ENABLE
 endif
 
-VALID_MAGIC_TYPES := yes lite
+VALID_MAGIC_TYPES := yes
 BOOTMAGIC_ENABLE ?= no
 ifneq ($(strip $(BOOTMAGIC_ENABLE)), no)
   ifeq ($(filter $(BOOTMAGIC_ENABLE),$(VALID_MAGIC_TYPES)),)
