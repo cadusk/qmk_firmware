@@ -18,13 +18,6 @@
 
 #include "config_common.h"
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0x4025
-#define PRODUCT_ID      0x0A0C
-#define DEVICE_VER      0x0F00
-#define MANUFACTURER    di0ib
-#define PRODUCT         The foobar Keyboard
-
 #define USE_SERIAL
 
 /* serial.c configuration for split keyboard */
