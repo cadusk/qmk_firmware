@@ -7,6 +7,7 @@ enum kinesis_layers {
   _COLEMAK,   // Colemak
   _FUNCTION,  // Function
   _NUMPAD,    // Numpad
+  _HOMEROW,   // Home Row Mod
   _ADJUST     // Adjust layer (accessed via tri-layer feature)
 };
 
@@ -15,19 +16,33 @@ enum kinesis_keycodes {
   COLEMAK
 };
 
-//Aliases for longer keycodes
+// Aliases for longer keycodes
 #define NUMPAD  TG(_NUMPAD)
+#define HOMEROW TG(_HOMEROW)
 #define ADJUST  MO(_ADJUST)
 #define PGDN_FN LT(_FUNCTION, KC_PGDN)
 #define END_FN  LT(_FUNCTION, KC_END)
 #define CTL_ESC CTL_T(KC_ESC)
+
+// Home Row Mods shortcuts
+#define HOME_A LGUI_T(KC_A)
+#define HOME_S LALT_T(KC_S)
+#define HOME_D LSFT_T(KC_D)
+#define HOME_F LCTL_T(KC_F)
+// ---
+#define HOME_J RCTL_T(KC_J)
+#define HOME_K RSFT_T(KC_K)
+#define HOME_L LALT_T(KC_L)
+#define HOME_SCLN RGUI_T(KC_SCLN)
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
 QWERTY
 (Default layer; keys separated by "/" tap for first, hold for second)
 ,--------------------------------------------------------------.                                     ,--------------------------------------------------------------.
-|  ESC |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |                                     |  F9  |  F10 |  F11 |  F12 |PrtScr|ScrLck| Pause|Numpad|Adjust|
+|  ESC |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |                                     |  F9  |  F10 |  F11 |  F12 |PrtScr|ScrLck|HR mod|Numpad|Adjust|
 `--------------------------------------------------------------'                                     `--------------------------------------------------------------'
 ,------------------------------------------------------.                                                     ,------------------------------------------------------.
 |    `    |    1   |    2   |    3   |    4   |    5   |                                                     |    6   |    7   |    8   |    9   |    0   |    -    |
@@ -50,7 +65,7 @@ QWERTY
                                                                   ^----------  Fn  ----------^
 */
 [_QWERTY] = LAYOUT(
-  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, KC_PAUS, NUMPAD,  ADJUST,
+  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, HOMEROW, NUMPAD,  ADJUST,
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
@@ -65,7 +80,7 @@ QWERTY
 Colemak
 (Keys separated by "/" tap for first, hold for second)
 ,--------------------------------------------------------------.                                     ,--------------------------------------------------------------.
-|  ESC |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |                                     |  F9  |  F10 |  F11 |  F12 |PrtScr|ScrLck| Pause|Numpad|Adjust|
+|  ESC |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |                                     |  F9  |  F10 |  F11 |  F12 |PrtScr|ScrLck|HR mod|Numpad|Adjust|
 `--------------------------------------------------------------'                                     `--------------------------------------------------------------'
 ,------------------------------------------------------.                                                     ,------------------------------------------------------.
 |    `    |    1   |    2   |    3   |    4   |    5   |                                                     |    6   |    7   |    8   |    9   |    0   |    -    |
@@ -88,7 +103,7 @@ Colemak
                                                                   ^----------  Fn  ----------^
 */
 [_COLEMAK] = LAYOUT(
-  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, KC_PAUS, NUMPAD,  ADJUST,
+  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, HOMEROW, NUMPAD,  ADJUST,
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                                                          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS,
   CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                                                          KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
@@ -173,6 +188,44 @@ Numpad layer
 ),
 
 /*
+Home Row Mod layer
+(Right side layout close to PC numpad layout)
+,--------------------------------------------------------------.                                     ,--------------------------------------------------------------.
+|      |      |      |      |      |      |      |      |      |                                     |      |      |      |      |      |      |      |      |      |
+`--------------------------------------------------------------'                                     `--------------------------------------------------------------'
+,------------------------------------------------------.                                                     ,------------------------------------------------------.
+|         |        |        |        |        |        |                                                     |        |        |        |        |        |         |
+|---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
+|         |        |        |        |        |        |                                                     |        |        |        |        |        |         |
+|---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
+|         | SUP/A  | ALT/S  | SHFT/D | CTL/F  |        |                                                     |        | CTL/J  | SHFT/K | ALT/L  | SUP/;  |         |
+|---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
+|         |        |        |        |        |        |                                                     |        |        |        |        |        |         |
+`---------+--------+--------+--------+--------+--------'                                                     `--------+--------+--------+--------+--------+---------'
+          |        |        |        |        |                                                                       |        |        |        |        |
+          `-----------------------------------'                                                                       `-----------------------------------'
+                                                     ,-----------------.                 ,-----------------.
+                                                     |        |        |                 |        |        |
+                                            ,--------+--------+--------|                 |--------+--------+--------.
+                                            |        |        |        |                 |        |        |        |
+                                            |        |        |--------|                 |--------|        |        |
+                                            |        |        |        |                 |        |        |        |
+                                            `--------------------------'                 `--------------------------'
+*/
+[_HOMEROW] = LAYOUT(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,   _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,   _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,   _______,
+  _______, HOME_A,  HOME_S,  HOME_D,  HOME_F,  _______,                                                       _______, HOME_J,  HOME_K,  HOME_L,  HOME_SCLN, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,   _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                               _______, _______, _______,                   _______, _______, _______
+),
+
+
+/*
 Adjust layer
 ,--------------------------------------------------------------.                                     ,--------------------------------------------------------------.
 | BOOT  |      |      |      |      |      |      |      |     |                                     |      |      |      |      |      |      |      |      | EXIT |
@@ -197,7 +250,7 @@ Adjust layer
                                             `--------------------------'                 `--------------------------'
 */
 [_ADJUST] = LAYOUT(
-  QK_BOOT,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX,
+  QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX,
   _______, COLEMAK, QWERTY,  _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
@@ -212,23 +265,25 @@ Adjust layer
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case COLEMAK:
-      if (record->event.pressed) {
-        default_layer_set(1UL << _COLEMAK);
-        layer_move (_COLEMAK);
-        keymap_config.nkro = 0;
+    switch (keycode) {
+        case COLEMAK:
+            if (record->event.pressed) {
+                default_layer_set(1UL << _COLEMAK);
+                layer_move (_COLEMAK);
+                keymap_config.nkro = 0;
+            }
+            return false;
+        break;
+
+        case QWERTY:
+            if (record->event.pressed) {
+                default_layer_set(1UL << _QWERTY);
+                layer_move (_QWERTY);
+                keymap_config.nkro = 0;
+            }
+            return false;
+        break;
     }
-      return false;
-      break;
-    case QWERTY:
-      if (record->event.pressed) {
-        default_layer_set(1UL << _QWERTY);
-        layer_move (_QWERTY);
-        keymap_config.nkro = 0;
-      }
-      return false;
-      break;
-  }
-  return true;
+
+    return true;
 }
