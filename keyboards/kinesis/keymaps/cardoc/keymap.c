@@ -9,12 +9,12 @@ enum kinesis_layers {
 };
 
 enum custom_keycodes {
-    ___X___  = KC_NO,                      // makes it easier to read than XXXXXXX
+    ___X___ = KC_NO,                      // makes it easier to read than XXXXXXX
 
-    CTL_ESC  = LCTL_T(KC_ESC),
+    CTL_ESC = LCTL_T(KC_ESC),
 
-    FN_LANG  = LT(_FUNCTION, KC_SPACE),    // Change Mac language
-    FN_TMUX  = LT(_FUNCTION, KC_B),        // Tmux leader key
+    FN_LANG = LT(_FUNCTION, KC_SPACE),    // Change Mac language
+    FN_DEL  = LT(_FUNCTION, KC_DEL),      // Del
 };
 
 /****************************************************************************************************
@@ -35,11 +35,11 @@ enum custom_keycodes {
 *           |  =+  | Ins  | Left | Right|                                         |  Up  | Down |  [{  |  ]}  |
 *           `---------------------------'                                         `---------------------------'
 *                                        ,-------------.           ,-------------.
-*                                        | Ctrl | Alt  |           | Alt  | Del  |
+*                                        | Ctrl | Alt  |           | Alt  | Ctrl |
 *                                 ,------|------|------|           |------+------+------.
 *                                 |      |      | Hypr |           | Meh  |      |      |
 *                                 | BkSp | L_Gui|------|           |------|Return| Space|
-*                                 |      |      | Lang |           | TMUX |      |      |
+*                                 |      |      | Lang |           | Del  |      |      |
 *                                 `--------------------'           `--------------------'
 *                                                  ^------  Fn  ------^
 *   HYPER: Ctrl + Shift + Alt + Gui
@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
              KC_EQL,  KC_INS,  KC_LEFT, KC_RGHT,                                                                         KC_UP,   KC_DOWN, KC_LBRC, KC_RBRC,
-                                                          KC_LCTL, KC_LALT,                   KC_RALT, KC_DEL,
+                                                          KC_LCTL, KC_LALT,                   KC_RALT, KC_RCTL,
                                                                    KC_HYPR,                   KC_MEH,
-                                                 KC_BSPC, KC_RGUI, FN_LANG,                   FN_TMUX, KC_ENTER, KC_SPC
+                                                 KC_BSPC, KC_RGUI, FN_LANG,                   FN_DEL,  KC_ENTER, KC_SPC
   ),
 
 /****************************************************************************************************
@@ -129,9 +129,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
         }
 
-        case FN_TMUX: {
+        case FN_DEL: {
             if (record->tap.count && record->event.pressed) {
-                tap_code16(LCTL(KC_B));
+                tap_code16(KC_DEL);
                 return false;
             }
             return true;
