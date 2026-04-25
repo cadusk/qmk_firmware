@@ -37,7 +37,7 @@ enum custom_keycodes {
 *                                        ,-------------.           ,-------------.
 *                                        | Ctrl | Alt  |           | Alt  | Ctrl |
 *                                 ,------|------|------|           |------+------+------.
-*                                 |      |      | Hypr |           | Meh  |      |      |
+*                                 |      |      | Hypr |           | Hypr |      |      |
 *                                 | BkSp | L_Gui|------|           |------|Return| Space|
 *                                 |      |      | Lang |           | Del  |      |      |
 *                                 `--------------------'           `--------------------'
@@ -54,8 +54,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
              KC_EQL,  KC_INS,  KC_LEFT, KC_RGHT,                                                                         KC_UP,   KC_DOWN, KC_LBRC, KC_RBRC,
                                                           KC_LCTL, KC_LALT,                   KC_RALT, KC_RCTL,
-                                                                   KC_HYPR,                   KC_MEH,
-                                                 KC_BSPC, KC_RGUI, FN_LANG,                   FN_DEL,  KC_ENTER, KC_SPC
+                                                                   KC_HYPR,                   KC_HYPR,
+                                                 KC_BSPC, KC_LGUI, FN_LANG,                   FN_DEL,  KC_ENTER, KC_SPC
   ),
 
 /****************************************************************************************************
